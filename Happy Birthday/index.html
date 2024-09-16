@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Card</title>
+    <link rel="icon" type="image/x-icon" href="cake.ico">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        html, body {
+            display: block;
+            overflow: hidden;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #a448b194;
+            background: linear-gradient(to bottom,#a448b194 60%, #a448b194 100%);
+        }
+
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            transform-style: preserve-3d;
+            transform: perspective(1000px);
+        }
+
+        .card .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.95s;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .card .slide1 {
+            background: #db698be0;
+            transform: rotateY(0deg);
+        }
+
+        .card .slide2 {
+            background: #e26d6d;
+            transform: rotateY(180deg);
+        }
+
+        .card .content {
+            position: absolute;
+            top: 35%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #7a2727;
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+        }
+        .card .icon i {
+            font-size: 60px;
+            color: #fff;
+        }
+
+        .card.active .slide1 {
+            transform: rotateY(-180deg);
+        }
+
+        .card.active .slide2 {
+            transform: rotateY(0deg);
+        }
+
+        #heart {
+            animation: 3s linear 0s normal none infinite pulse;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            10% { transform: scale(1.1); }
+            20% { transform: scale(1); }
+            40% { transform: scale(1); }
+            47% { transform: scale(1.1); }
+            55% { transform: scale(1); }
+            62% { transform: scale(1.1); }
+            69% { transform: scale(1); }
+            100% { transform: scale(1); }
+        }
+
+        #heart {
+            position: relative;
+            left: -7px;
+            width: 100px;
+            height: 90px;
+            margin: 20% auto 0;
+        }
+
+        #heart:before, #heart:after {
+            position: absolute;
+            content: "";
+            left: 50px;
+            top: 0;
+            width: 50px;
+            height: 80px;
+            background: red;
+            border-radius: 50px 50px 0 0;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
+
+        #heart:after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                width: 250px;
+                height: 250px;
+            }
+
+            .card {
+                width: 250px;
+                height: 250px;
+            }
+
+            #heart {
+                width: 80px;
+                height: 72px;
+            }
+
+            .card .icon i {
+                font-size: 50px;
+            }
+        }
+        @import url(https://fonts.googleapis.com/css?family=Lato:300italic);
+
+    html,
+        body {
+    height: 100%;
+}
+    body {
+        background: #a27bcc;.
+            background: -moz-radial-gradient(center, ellipse cover, #a27bcc 0%, #6c5299 100%);
+            background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #a27bcc), color-stop(100%, #6c5299));
+            background: -webkit-radial-gradient(center, ellipse cover, #a27bcc 0%, #6c5299 100%);
+            background: -o-radial-gradient(center, ellipse cover, #a27bcc 0%, #6c5299 100%);
+            background: -ms-radial-gradient(center, ellipse cover, #a27bcc 0%, #6c5299 100%);
+            background: radial-gradient(ellipse at center, #a27bcc 0%, #6c5299 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a27bcc', endColorstr='#6c5299', GradientType=1);
+            }
+            /* ============================================== POSITION
+            */
+            .cake {
+            position: absolute;
+            top: 105%;
+            left: 50%;
+            margin-left: -50px;
+            margin-top: -50px;
+            width: 100px;
+            height: 100px;
+            }
+            /* ============================================== BASE
+            */
+            .cake:after {
+            background: #ebe3e1;
+            border-radius: 100px;
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 2px;
+            }
+            /* ============================================== Candle
+            */
+            .candle {
+            background: #ffffff;
+            border-radius: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -2.5px;
+            margin-top: -8.333333333333334px;
+            width: 5px;
+            height: 16.666666666666668px;
+            }
+            .candle:after,
+            .candle:before {
+            background: rgba(255, 0, 0, 0.4);
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 2.2222222222222223px;
+            }
+            .candle:after {
+            top: 25%;
+            left: 0;
+            }
+            .candle:before {
+            top: 45%;
+            left: 0;
+            }
+            /* ============================================== Fire
+            */
+            .fire {
+            border-radius: 100%;
+            box-shadow: 0 0 40px 10px rgba(248, 233, 209, 0.2);
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            margin-left: -3.3333333333333335px;
+            width: 6.666666666666667px;
+            height: 12.5px;
+            }
+            .fire:nth-child(1) {
+            -webkit-animation: fire 2s infinite;
+            }
+            .fire:nth-child(2) {
+            -webkit-animation: fire 1.5s infinite;
+            }
+            .fire:nth-child(3) {
+            -webkit-animation: fire 1s infinite;
+            }
+            .fire:nth-child(4) {
+            -webkit-animation: fire 0.5s infinite;
+            }
+            .fire:nth-child(5) {
+            -webkit-animation: fire 0.2s infinite;
+            }
+            /* ============================================== Animation Fire
+            */
+            @-webkit-keyframes fire {
+            0% {
+                background: rgba(254, 248, 97, 0.5);
+                -webkit-transform: translateY(0) scale(1);
+            }
+            50% {
+                background: rgba(255, 50, 0, 0.1);
+                -webkit-transform: translateY(-20px) scale(0);
+            }
+            100% {
+                background: rgba(254, 248, 97, 0.5);
+                -webkit-transform: translateY(0) scale(1);
+            }
+            }
+            /* ============================================== Frosting
+            */
+            .cobertura {
+            background: #ece7e3;
+            border-radius: 50px;
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            margin-left: -27.77777777777778px;
+            margin-top: -5px;
+            width: 55.55555555555556px;
+            height: 12.5px;
+            z-index: 10;
+            }
+            .cobertura:after,
+            .cobertura:before {
+            background: #ece7e3;
+            border-radius: 100px;
+            content: "";
+            position: absolute;
+            width: 5px;
+            height: 10px;
+            }
+            .cobertura:after {
+            top: 6.666666666666667px;
+            right: 14.285714285714286px;
+            }
+            .cobertura:before {
+            top: 10px;
+            right: 9.090909090909092px;
+            }
+            /* ============================================== BIZCOCHO
+            */
+            .bizcocho {
+            background: #6d3826;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            margin-left: -25px;
+            width: 50px;
+            height: 33.333333333333336px;
+            }
+            .bizcocho:after,
+            .bizcocho:before {
+            background: rgba(236, 231, 227, 0.6);
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            }
+            .bizcocho:after {
+            top: 30%;
+            left: 0;
+            }
+            .bizcocho:before {
+            top: 60%;
+            left: 0;
+            }
+            /* ============================================== TEXT
+            */
+            h1,
+            p {
+            font-family: 'Lato', sans-serif;
+            font-weight: 300;
+            font-style: italic;
+            text-align: center;
+            width: 100%;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -webkit-user-select: none;
+            }
+            h1 {
+            color: #6c5299;
+            font-size: 1em;
+            margin-top: 6.8em;
+            }
+
+
+    </style>
+</head>
+
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>
+
+    <!-- Container for hover card -->
+    <div class="container">
+        <div class="card" id="hover-card">
+            <div class="slide slide1">
+                <div class="content">
+                    <div class="icon">
+                        <div id="heart"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide slide2">
+                <div class="content">
+                    <h3>Happy Birthday!</h3>
+                    <p style="font-size: 16px; font-weight: bold; font-family: 'Dancing Script', cursive;" >Happy birthday best wishes to you , I love you mwaaa</p>
+                
+                    <div class ="bday">
+                        <div class="cake">
+                        <div class="candle">
+                          <div class="fire"></div>
+                          <div class="fire"></div>
+                          <div class="fire"></div>
+                          <div class="fire"></div>
+                          <div class="fire"></div>
+                        </div>
+                        <div class="cobertura"></div>
+                        <div class="bizcocho"></div>
+                      </div>
+                      </div>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // Toggle class on click for touch devices
+        const card = document.getElementById('hover-card');
+        card.addEventListener('click', function() {
+            card.classList.toggle('active');
+        });
+
+        // Firework class definition
+        class Firework {
+            constructor(scene) {
+                this.scene = scene;
+                this.done = false;
+                this.dest = [];
+                this.colors = [];
+                this.geometry = null;
+                this.points = null;
+                this.material = new THREE.PointsMaterial({
+                    size: 16,
+                    color: 0xffffff,
+                    opacity: 1,
+                    vertexColors: true,
+                    transparent: true,
+                    depthTest: false,
+                });
+                this.launch();
+            }
+
+            reset() {
+                this.scene.remove(this.points);
+                this.dest = [];
+                this.colors = [];
+                this.geometry = null;
+                this.points = null;
+            }
+
+            launch() {
+                var s = Utils.screen();
+                var x = THREE.Math.randInt(-s.width, s.width);
+                var y = THREE.Math.randInt(100, 800);
+                var z = THREE.Math.randInt(-1000, -3000);
+
+                var from = new THREE.Vector3(x, -800, z);
+                var to = new THREE.Vector3(x, y, z);
+
+                var color = new THREE.Color();
+                color.setHSL(THREE.Math.randFloat(0.1, 0.9), 1, 0.9);
+                this.colors.push(color);
+
+                this.geometry = new THREE.Geometry();
+                this.points = new THREE.Points(this.geometry, this.material);
+
+                this.geometry.colors = this.colors;
+                this.geometry.vertices.push(from);
+                this.dest.push(to);
+                this.colors.push(color);
+                this.scene.add(this.points);
+            }
+
+            explode(vector) {
+                this.scene.remove(this.points);
+                this.dest = [];
+                this.colors = [];
+                this.geometry = new THREE.Geometry();
+                this.points = new THREE.Points(this.geometry, this.material);
+
+                for (var i = 0; i < 80; i++) {
+                    var color = new THREE.Color();
+                    color.setHSL(THREE.Math.randFloat(0.1, 0.9), 1, 0.5);
+                    this.colors.push(color);
+
+                    var from = new THREE.Vector3(
+                        THREE.Math.randInt(vector.x - 10, vector.x + 10),
+                        THREE.Math.randInt(vector.y - 10, vector.y + 10),
+                        THREE.Math.randInt(vector.z - 10, vector.z + 10)
+                    );
+                    var to = new THREE.Vector3(
+                        THREE.Math.randInt(vector.x - 1000, vector.x + 1000),
+                        THREE.Math.randInt(vector.y - 1000, vector.y + 1000),
+                        THREE.Math.randInt(vector.z - 1000, vector.z + 1000)
+                    );
+                    this.geometry.vertices.push(from);
+                    this.dest.push(to);
+                }
+                this.geometry.colors = this.colors;
+                this.scene.add(this.points);
+            }
+
+            update() {
+                if (this.points && this.geometry) {
+                    var total = this.geometry.vertices.length;
+
+                    for (var i = 0; i < total; i++) {
+                        this.geometry.vertices[i].x += (this.dest[i].x - this.geometry.vertices[i].x) / 20;
+                        this.geometry.vertices[i].y += (this.dest[i].y - this.geometry.vertices[i].y) / 20;
+                        this.geometry.vertices[i].z += (this.dest[i].z - this.geometry.vertices[i].z) / 20;
+                        this.geometry.verticesNeedUpdate = true;
+                    }
+
+                    if (total === 1) {
+                        if (Math.ceil(this.geometry.vertices[0].y) > (this.dest[0].y - 20)) {
+                            this.explode(this.geometry.vertices[0]);
+                            return;
+                        }
+                    }
+
+                    if (total > 1) {
+                        this.material.opacity -= 0.015;
+                        this.material.colorsNeedUpdate = true;
+                    }
+
+                    if (this.material.opacity <= 0) {
+                        this.reset();
+                        this.done = true;
+                        return;
+                    }
+                }
+            }
+        }
+
+        // Utility functions
+        (function () {
+            var _w = window,
+                _s = window.screen,
+                _b = document.body,
+                _d = document.documentElement;
+
+            window.Utils = {
+                screen: function () {
+                    var width = Math.max(0, _w.innerWidth || _d.clientWidth || _b.clientWidth || 0);
+                    var height = Math.max(0, _w.innerHeight || _d.clientHeight || _b.clientHeight || 0);
+
+                    return {
+                        width: width,
+                        height: height,
+                        centerx: width / 2,
+                        centery: height / 2,
+                        ratio: width / height,
+                    };
+                },
+                mouse: function (e) {
+                    var x = Math.max(0, e.pageX || e.clientX || 0);
+                    var y = Math.max(0, e.pageY || e.clientY || 0);
+                    var s = this.screen();
+
+                    return {
+                        x: x,
+                        y: y,
+                        centerx: (x - s.centerx),
+                        centery: (y - s.centery),
+                    };
+                },
+            };
+        })();
+
+        // Fireworks and Animation
+        (function () {
+            var screen = Utils.screen(),
+                renderer = null,
+                camera = null,
+                scene = null,
+                to = { px: 0, py: 0, pz: 500 },
+                fireworks = [];
+
+            try {
+                renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+                camera = new THREE.PerspectiveCamera(60, screen.ratio, 0.1, 20000);
+                scene = new THREE.Scene();
+            } catch (e) {
+                alert("THREE.JS Error: " + e.toString());
+                return;
+            }
+
+            function onResize(e) {
+                var s = Utils.screen();
+                renderer.setSize(s.width, s.height);
+                camera.aspect = s.ratio;
+                camera.updateProjectionMatrix();
+            }
+
+            function onMouse(e) {
+                var mouse = Utils.mouse(e);
+                to.px = (mouse.centerx * 0);
+                to.py = -(mouse.centery * 0);
+            }
+
+            function setup() {
+                camera.position.set(0, 0, 0);
+                camera.rotation.set(0, 0, 0);
+
+                renderer.setPixelRatio(window.devicePixelRatio);
+                renderer.setClearColor(0x000000, 0);
+                renderer.sortObjects = true;
+                renderer.domElement.style["display"] = "block";
+                renderer.domElement.style["position"] = "fixed";
+                renderer.domElement.style["width"] = "100%";
+                renderer.domElement.style["height"] = "100%";
+                renderer.domElement.style["z-index"] = "-1";
+
+                window.addEventListener("resize", onResize, false);
+                window.addEventListener("mousemove", onMouse, false);
+
+                document.body.appendChild(renderer.domElement);
+            }
+
+            function draw() {
+                requestAnimationFrame(draw);
+
+                if (THREE.Math.randInt(1, 20) === 10) {
+                    console.log("Creating new firework");
+                    fireworks.push(new Firework(scene));
+                }
+
+                for (var i = 0; i < fireworks.length; i++) {
+                    if (fireworks[i].done) {
+                        fireworks.splice(i, 1);
+                        continue;
+                    }
+                    fireworks[i].update();
+                }
+
+                camera.position.x += (to.px - camera.position.x) / 40;
+                camera.position.y += (to.py - camera.position.y) / 40;
+                camera.position.z += (to.pz - camera.position.z) / 40;
+
+                renderer.render(scene, camera);
+            }
+
+            onResize();
+            setup();
+            draw();
+        })();
+    </script>
+</body>
+
+</html>
